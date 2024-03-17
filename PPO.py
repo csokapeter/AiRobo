@@ -5,9 +5,7 @@ from torch.distributions import Normal
 
 
 use_cuda = torch.cuda.is_available()
-device   = 'cpu' #torch.device("cuda" if use_cuda else "cpu")
-torch.set_num_threads(1)
-torch.set_num_interop_threads(1)
+device = torch.device("cuda" if use_cuda else "cpu")
 print(f'using device: {device}')
 
 
