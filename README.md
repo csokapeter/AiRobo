@@ -1,15 +1,3 @@
-# AiRobo
-
-## Creating a virtual environment:
-python3 -m venv .venv
-
-## Upgrade pip
-python3 -m pip install --upgrade pip
-
-## Activate your virtual environment:
-Windows: .venv\Scripts\activate
-
-Linux/Mac: source .venv/bin/activate
-
-## Installing requirements:
-python3 -m pip install -r requirements.txt
+# AiRobo Tutorials
+- mlagents folder: This folder contains a Unity project integrated with ML-Agents. It includes both training environments and a demonstration environment designed for reinforcement learning.
+- ros folder: This folder holds a Unity project with ROS integration. It includes a demonstration environment and ROS 2 packages that allow you to run a trained reinforcement learning model within Unity.

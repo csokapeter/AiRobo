@@ -1,0 +1,8 @@
+float32 angle
+float32 speed
+float32 distance
+float32[4] front_lidar
+float32[4] rear_lidar
+---
+float32 torque
+float32 steering
