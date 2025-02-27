@@ -10,6 +10,11 @@ using System.Collections.Generic;
 
 public class Drive : Agent
 {
+    [SerializeField] private bool _takeImage;
+    [SerializeField] private string _imagePath = "/CameraImages/CameraImage.jpg";
+    [SerializeField] private RenderTexture _renderTexture;
+    private Texture2D _cameraImageTexture;
+
     [SerializeField] private List<GameObject> _wheels;
     [SerializeField] private Rigidbody _scoutRb;
     [SerializeField] private Transform _scoutTransform;
@@ -52,6 +57,20 @@ public class Drive : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         _steps++;
+        if (_takeImage && _steps % 25 == 0)
+        {
+            _cameraImageTexture = new Texture2D(_renderTexture.width, _renderTexture.height, TextureFormat.RGB24, false);
+            RenderTexture.active = _renderTexture;
+            _cameraImageTexture.ReadPixels(new Rect(0, 0, _renderTexture.width, _renderTexture.height), 0, 0);
+            _cameraImageTexture.Apply();
+            RenderTexture.active = null;
+
+            byte[] imageBytes = _cameraImageTexture.EncodeToJPG();
+            File.WriteAllBytes(Application.dataPath + _imagePath, imageBytes);
+
+            Destroy(_cameraImageTexture);
+        }
+
         float[] lidarSensorMeasurementsFront = _lidarSensorFront.GetComponent<LidarSensor>().GetLidarSensorMeasurements();
         float[] lidarSensorMeasurementsBack = _lidarSensorBack.GetComponent<LidarSensor>().GetLidarSensorMeasurements();
 

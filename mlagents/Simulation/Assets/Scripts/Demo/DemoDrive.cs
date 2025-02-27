@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
@@ -8,7 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 
 public class DemoDrive : Agent
 {
@@ -127,7 +127,6 @@ public class DemoDrive : Agent
         {
             Debug.Log($"Charging water: {currentWater}, energy: {currentEnergy}");
         }
-        
     }
 
     private void CheckDone()
