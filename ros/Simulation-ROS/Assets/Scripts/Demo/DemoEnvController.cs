@@ -45,7 +45,7 @@ public class DemoEnvController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_currentTargetIdx > 3)
+        if (_currentTargetIdx > 3 && _dogs.Count > 0)
         {
             _dogs[0].transform.position = Vector3.MoveTowards(_dogs[0].transform.position, _baseStationPoint.transform.position + new Vector3(1.5f, 0f, 1f), 0.2f * Time.fixedDeltaTime);
         }
@@ -59,7 +59,7 @@ public class DemoEnvController : MonoBehaviour
 
     private void NextTarget(bool isBaseStation)
     {
-        if (!isBaseStation && _currentTargetIdx < _flowers.Count - 1)
+        if (!isBaseStation && _currentTargetIdx < _flowers.Count)
         {
             _scoutStartPos = _scoutTransform.position;
             _scoutStartRotZ = _scoutTransform.rotation.eulerAngles.z;
@@ -78,5 +78,6 @@ public class DemoEnvController : MonoBehaviour
             Debug.Log("All plants watered! Exiting.");
             EditorApplication.ExitPlaymode();
         }
+        print(_targetTransform.position);
     }
 }

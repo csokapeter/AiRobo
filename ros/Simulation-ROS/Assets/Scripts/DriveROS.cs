@@ -53,11 +53,6 @@ public class DriveROS : MonoBehaviour
 
         currentWater = maxWater;
         currentEnergy = maxEnergy;
-        StartEpisode();
-    }
-
-    public void StartEpisode()
-    {
         CallEnvRestart();
 
         _hasCalledTargetPoint = false;
@@ -135,12 +130,13 @@ public class DriveROS : MonoBehaviour
  
     private void CheckDone()
     {
+        _currentDistance = Vector2.Distance(_currentPosition, _targetPosition);
         if (_currentDistance < _targetThreshold)
         {
             Debug.Log("TARGET REACHED");
             WaterPlant();
+            _hasCalledTargetPoint = false;
             CallTargetPointReached(false);
-            return;
         }
     }
  
