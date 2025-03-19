@@ -1,4 +1,4 @@
-# ROS 2 and Unity Integration Setup
+# ROS 2 and Unity Integration Setup on linux
 The project was made using ROS2 foxy and Unity version 2022.3.20f1
 
 ## Prerequisites
