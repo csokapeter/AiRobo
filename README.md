@@ -1,3 +1,5 @@
 # AiRobo Tutorials
 - mlagents folder: This folder contains a Unity project integrated with ML-Agents. It includes both training environments and a demonstration environment designed for reinforcement learning.
 - ros folder: This folder holds a Unity project with ROS integration. It includes a demonstration environment and ROS 2 packages that allow you to run a trained reinforcement learning model within Unity.
+
+A video demonstrating the project: https://youtu.be/aYNu02z6QEg
